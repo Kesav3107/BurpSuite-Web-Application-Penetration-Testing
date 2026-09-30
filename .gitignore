@@ -1,0 +1,32 @@
+# Burp Suite project files
+*.burp
+*.burpsuite
+
+# Environment and secrets
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Credentials and sensitive files
+*password*
+*secret*
+*token*
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Temporary files
+*.tmp
+*.temp
