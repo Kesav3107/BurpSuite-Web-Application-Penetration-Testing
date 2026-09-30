@@ -62,3 +62,209 @@ Burp Suite
    |
    v
 Firefox
+```
+Testing Methodology
+
+The assessment followed an evidence-driven workflow:
+
+* Define scope and authorization.
+* Deploy OWASP Juice Shop using Docker.
+* Verify the application locally.
+* Configure Firefox to use Burp Suite.
+* Capture normal application traffic.
+* Analyze HTTP requests and responses.
+* Test authentication behavior.
+* Perform controlled testing using Repeater.
+* Perform controlled repeated testing using Intruder.
+* Analyze API authorization behavior.
+* Review input handling and XSS-oriented testing.
+* Consider CSRF and session-security controls.
+* Document observations and evidence.
+* Prepare remediation recommendations.
+---
+Burp Suite Components Used
+
+Proxy : 
+Used to intercept and inspect browser traffic.
+
+HTTP History : 
+Used to review captured application requests and responses.
+
+Repeater : 
+Used for manually modifying and replaying selected requests.
+
+Intruder : 
+Used for controlled repeated testing with a small laboratory dataset.
+
+---
+
+Security Testing Areas: 
+
+* Authentication
+* Login request analysis
+* Authentication failure analysis
+* Controlled credential testing
+* Authentication input manipulation
+* Token/session handling
+
+API Security:
+
+* Authenticated API requests
+* Basket API testing
+* Object identifier behavior
+* Authorization testing
+* HTTP method behavior
+* User endpoint analysis
+
+Input Security:
+
+* Controlled XSS-oriented testing
+* Input validation considerations
+* Output encoding considerations
+
+Session Security:
+
+* Token transmission
+* Token storage considerations
+* Session lifecycle
+* Logout and expiration considerations
+* CSRF considerations
+
+---
+Evidence:
+The project contains evidence showing:
+
+* Docker deployment
+* Juice Shop startup
+* Application baseline
+* Burp Proxy configuration
+* Firefox proxy configuration
+* HTTP interception
+* Authentication requests
+* Repeater testing
+* Intruder configuration
+* Intruder results
+* API authorization testing
+* Basket API testing
+* User endpoint analysis
+* XSS-oriented testing
+* CSRF/session-security analysis
+
+Detailed evidence is available in:
+```
+docs/Evidence_and_Screenshots.pdf
+```
+---
+Project Documentation:
+```
+| Document                   | Description                  |
+| -------------------------- | ---------------------------- |
+| Security Assessment Report | Complete project report      |
+| Evidence and Screenshots   | Testing evidence             |
+| Project Presentation       | PPT presentation             |
+| Final Checklist            | Final verification checklist |
+```
+---
+Findings and Risk Assessment:
+
+The assessment focuses on security testing areas including:
+* Authentication input handling
+* Authentication response behavior
+* Token/session handling
+* API authorization
+* Object-level authorization
+* Input validation
+* XSS-oriented testing
+* CSRF/session-security considerations
+Security conclusions are based on the available evidence and are not treated as confirmed vulnerabilities unless the evidence supports that conclusion.
+
+---
+Remediation Areas
+
+Recommended defensive controls include: 
+* Parameterized database queries
+* Strong authentication controls
+* Rate limiting
+* Proper authorization checks
+* Input validation
+* Context-aware output encoding
+* CSRF protections where applicable
+* Secure token handling
+* Session expiration and logout controls
+* Data minimization
+
+---
+Ethical Scope
+This project was performed against an intentionally vulnerable OWASP Juice Shop instance running locally.
+
+Target:
+```
+http://localhost:3000
+```
+The techniques demonstrated in this project must only be used against systems for which explicit authorization has been provided.
+Do not use these techniques against public websites, systems or accounts without permission.
+
+---
+Tools and Technologies:
+* Kali Linux
+* Burp Suite
+* OWASP Juice Shop
+* Docker
+* Firefox
+* HTTP/HTTPS
+* REST APIs
+* Web Application Security Testing
+
+---
+Disclaimer:
+
+This repository is intended for educational and authorized security-testing purposes only.
+No production systems were intentionally targeted.
+Sensitive credentials, authentication tokens and other secrets should not be committed to this repository.
+
+---
+Author
+
+Chavali Keshava Gopalu
+
+Cybersecurity / Network Security
+
+GitHub: Kesav3107
+
+---
+gitignore:
+```
+# Burp Suite
+*.burp
+*.burpsuite
+
+# Credentials and secrets
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Tokens
+*token*
+*secret*
+*password*
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+
+# Temporary files
+*.tmp
+*.temp
+
+```
